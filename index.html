@@ -71,14 +71,37 @@
 
 			<section id="contato">
 				<h2>Fale comigo</h2>
-				<form>
-					<label for="nome">Seu nome</label>
-					<input type="text" id="nome" placeholder="Digite seu nome">
-					<label for="mensagem">Mensagem</label>
-					<textarea id="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
-					<button type="submit">Enviar</button>
+				
+				<div data-fs-success>Mensagem enviada com sucesso! Obrigado pelo contato.</div>
+				<div data-fs-error>Ocorreu um erro ao enviar. Por favor, tente novamente.</div>
+				
+				<form id="meu-form">
+					<div>
+						<label for="nome">Seu nome</label>
+						<input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+						<span data-fs-error="nome"></span>
+					</div>
+					
+					<div>
+						<label for="mensagem">Mensagem</label>
+						<textarea id="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
+						<span data-fs-error="message"></span>
+					</div>
+					
+					<button type="submit" data-fs-submit-btn>Enviar</button>
+
 				</form>
 			</section>
+			
+			<script>
+ 	 			window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  				formspree('initForm', { 
+			    formElement: '#meu-formulario-contato', 
+    			formId: 'mdeadbgg' 
+  				});
+			</script>
+			
+			<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 		</main>
 
 		<footer>
