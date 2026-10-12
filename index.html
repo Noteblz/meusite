@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<header>
-			<img src="foto.jpg" alt="Foto de SEU NOME">
+			<img src="foto.jpg" alt="Foto de Pedro Henrique">
 			<h1>Pedro Henrique de Oliveira Almeida</h1>
 			<p>Estudante do Curso Técnico em Informática</p>
 			<p>IFS – Campus Tobias Barreto</p>
@@ -70,38 +70,42 @@
 			</section>
 
 			<section id="contato">
-				<h2>Fale comigo</h2>
-				
-				<div data-fs-success>Mensagem enviada com sucesso! Obrigado pelo contato.</div>
-				<div data-fs-error>Ocorreu um erro ao enviar. Por favor, tente novamente.</div>
-				
-				<form id="meu-form">
-					<div>
-						<label for="nome">Seu nome</label>
-						<input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-						<span data-fs-error="nome"></span>
-					</div>
-					
-					<div>
-						<label for="mensagem">Mensagem</label>
-						<textarea id="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
-						<span data-fs-error="message"></span>
-					</div>
-					
-					<button type="submit" data-fs-submit-btn>Enviar</button>
+			    <h2>Fale comigo</h2>
+    
+			    <!-- Mensagens de Feedback Automáticas -->
+			    <div data-fs-success>Mensagem enviada com sucesso! Obrigado pelo contato.</div>
+			    <div data-fs-error>Ocorreu um erro ao enviar. Por favor, tente novamente.</div>
+    
+			    <!-- Formulário -->
+			    <form id="meu-formulario-contato">
+			        <div>
+			            <label for="name">Seu nome</label>
+			            <input type="text" id="name" name="name" placeholder="Digite seu nome" data-fs-field required>
+			            <span data-fs-error="name"></span>
+			        </div>
+        
+			        <div>
+			            <label for="message">Mensagem</label>
+			            <textarea id="message" name="message" rows="4" placeholder="Escreva sua mensagem" data-fs-field required></textarea>
+			            <span data-fs-error="message"></span>
+			        </div>
+        
+			        <button type="submit" data-fs-submit-btn>Enviar</button>
+		    	</form>
 
-				</form>
+    			<!-- 1º Carrega a biblioteca do Formspree com o link correto -->
+			    <script src="https://unpkg.com/@formspree/ajax@1"></script>
+
+			    <!-- 2º Ativa o formulário logo em seguida -->
+			    <script>
+			        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+			        formspree('initForm', { 
+		            	formElement: '#meu-formulario-contato', 
+		            	formId: 'mdeadbgg' 
+			        });
+			    </script>
 			</section>
-			
-			<script>
- 	 			window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-  				formspree('initForm', { 
-			    formElement: '#meu-formulario-contato', 
-    			formId: 'mdeadbgg' 
-  				});
-			</script>
-			
-			<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
 		</main>
 
 		<footer>
